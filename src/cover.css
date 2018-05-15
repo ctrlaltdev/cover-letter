@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css?family=Titillium+Web:400,600");
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+canvas {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+button,
+a {
+  cursor: pointer; }
+
+a {
+  text-decoration: none;
+  color: #000000; }
+
+html,
+body {
+  font-size: 10pt;
+  font-family: 'Titillium Web', sans-serif;
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  background-repeat: repeat;
+  background-attachment: fixed;
+  color: black; }
+
+header {
+  display: flex;
+  justify-content: space-between; }
+  header h1 {
+    flex: 1 0 auto;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 2.4em; }
+  header ul {
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: flex-end; }
+    header ul li {
+      flex: 0 0 auto;
+      margin: 5pt 0 0 5pt;
+      text-align: right; }
+      header ul li a {
+        border-bottom: solid #000000 2pt; }
+      header ul li a[href^="https://github"] {
+        border-bottom: solid #0366d6 2pt; }
+      header ul li a[href^="https://linkedin"] {
+        border-bottom: solid #0091ca 2pt; }
+
+section#contact {
+  margin-top: 0pt; }
+  section#contact ul {
+    display: flex;
+    justify-content: flex-start; }
+    section#contact ul li {
+      flex: 0 0 auto;
+      margin: 5pt 5pt 0 0;
+      text-align: left; }
+
+section h2 {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.2em;
+  margin: 20pt 0 10pt; }
+  section h2 span {
+    padding: 5pt 20pt;
+    background-color: black;
+    color: white; }
+
+section article h3 {
+  text-transform: uppercase;
+  font-size: 1.1em;
+  margin-bottom: 5pt; }
+  section article h3 span {
+    font-weight: 600; }
+
+section article h3:first-of-type {
+  margin-top: 20pt; }
+
+section article p {
+  margin: 5pt 0;
+  padding-left: 20pt;
+  font-size: 1em;
+  line-height: 1.2; }
+
+section article .timeframe {
+  padding: 0; }
+
+#grid-container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: auto; }
+  #grid-container #experiences {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1; }
+  #grid-container aside {
+    grid-column: 2 / 2;
+    grid-row: 1 / 1; }
+
+aside h2 {
+  box-sizing: border-box;
+  font-size: 1em;
+  padding: 2pt 10pt;
+  background-color: black;
+  color: white; }
+
+aside ul {
+  list-style: none; }
+  aside ul li {
+    margin-bottom: 10px; }
+  aside ul li.col {
+    display: flex;
+    flex-flow: nowrap; }
+    aside ul li.col span.name,
+    aside ul li.col span.level {
+      flex: 0 0 auto;
+      width: 50%; }
+    aside ul li.col span.level {
+      text-align: right; }
