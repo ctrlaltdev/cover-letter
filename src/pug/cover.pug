@@ -1,84 +1,48 @@
-- var experiences = [{"title":["Web Project Manager"], "org":"French Prime Minister Services", "desc":["Web projects and service providers management: 10 websites launched, with 4 different providers.","Emailings: Newsletter and campaign management."], "start":"Apr 2015", "end":"Apr 2018"},{"title":["DevOp"], "org":"Freelance", "desc":["Development and deployment of web services: Visio web app for one to one interviews."],"start":"Sep 2016","end":"Mar 2018"},{"title":["Customer Relations and Logistics Manager"], "org":"NBM Groupe", "desc":["Customer relations management: before and after sales service.","Logistics: Parcel expedition and product supply management."],"start":"Feb 2014","end":"Aug 2014"},{"title":["Volunteer Product Manager"], "org":"Apache Magazine", "desc":["Functional design, development and deployment of the magazine website."],"start":"May 2012","end":"Apr 2015"},{"title":["Partnerships and Events Assistant","Social Media Executive"], "org":"Viadeo", "desc":["Viadeo's brand social media accounts management and campaign planning.","Event planning and organization.","Emailing campaign strategy and management."],"start":"Feb 2011","end":"Sep 2013"}];
-
-- var education = [{"title":"Marketing, Communication and Internet", "org":"ESA3", "desc":["Market benchmarking. Marketing campaign planning. Business planning and strategy."],"year":"2013"},{"title":"M.S. in Multimedia Project Management", "org":"Ecole Multimedia", "desc":["Activities and Societies: Multimedia project definition, planning and execution. Marketing and media strategy. Web development."],"year":"2012"},{"title":"B.S. in Information and Communication Sciences", "org":"UNSA", "desc":["Activities and Societies: Marketing and Advertising. Communication Plans and Audit. Mass communications."],"year":"2011"}];
-
-- var skills = ["Project Management", "Product Development", "Problem Solving", "Communication", "Team Coordination", "Web Development"];
-
-- var techs = [{"name":"HTML, CSS", "level":5},{"name":"JavaScript", "level":4},{"name":"NodeJS", "level":4},{"name":"PHP", "level":4},{"name":"Python", "level":3},{"name":"Ruby", "level":2}];
-
-- var langs = [{"name":"French", "level":"Native"},{"name":"English", "level":"Fluent"},{"name":"Spanish", "level":"Beginner"}];
+- var info = {city:"Los Angeles", date:"05/15/2018", position:"Loler in Chief"};
+- var recipient = {name:"Robert Gerard", position:"Head of everything", company:"Lolilol inc.", address:"123 Fake St", city:"Los Angeles", state:"CA", zip:"90000"};
+- var content = {intro:"Dear Robert,", body:["Cupidatat fugiat duis nostrud aliquip magna ullamco quis amet labore. Tempor laboris enim quis esse sint qui excepteur laborum. Non exercitation nostrud laboris ad laboris elit eu aliquip. Qui culpa qui cillum ad. Enim et id proident ex ad tempor commodo consectetur enim ipsum sint nisi laborum voluptate. Dolore nulla commodo elit laboris. Ad deserunt amet aliquip labore ad dolor fugiat non sint aliqua exercitation sint.", "Enim magna voluptate incididunt dolor ea eu veniam aliquip id ex pariatur in ad. Proident non sunt consectetur fugiat esse enim eiusmod Lorem. Excepteur fugiat dolor elit minim sint fugiat qui irure ut qui sunt sit. Sint deserunt ullamco consequat aute ex eu magna.", "Nulla consequat consectetur incididunt consectetur id esse id culpa. Aliquip mollit exercitation ex officia ipsum adipisicing deserunt irure ullamco. Et aute et ex incididunt consectetur excepteur sit dolor. In labore fugiat excepteur adipisicing.", "Ad id do laborum enim labore ad. Dolore Lorem officia exercitation labore labore. Aliquip irure incididunt aute ullamco cupidatat consectetur consectetur magna qui nostrud fugiat. Veniam minim sunt pariatur Lorem excepteur. Qui pariatur ut consectetur sunt in eiusmod Lorem non est do eu sint quis. Non est nulla cillum cillum velit ut tempor excepteur elit."], closing:"Long live Robert"};
 
 html
   head
     meta(charset="utf-8")
     title Yorick Demichelis
-    link(rel="stylesheet", media="all", href="resume.css")
+    link(rel="stylesheet", media="all", href="cover.css")
   body
     header
       h1 Yorick Demichelis
-      ul.links
-        li
-          a(href="https://github.com/ctrlaltdev") Github
-        li
-          a(href="https://linkedin.com/in/yorickdemichelis") LinkedIn
-        li
-          a(href="https://ctrlaltdev.xyz") ctrlaltdev.xyz
-    section#contact
-      ul
-        li
-          a(href="tel:+13235295721") 323-529-5721
-        li
-          a(href="mailto:yorick@ctrlaltdev.xyz") yorick@ctrlaltdev.xyz
-        li
-          a(href="https://ctrlaltdev.xyz/PGPKEY.txt") PGP key: 0x6B5A7524
+      h2 #{info.position}
     #grid-container
-      section#experiences
-        h2
-          span Experiences
-        each exp in experiences
-          article
-            each title in exp.title
-              h3
-                span= title
-                = ' - ' + exp.org
-            p.timeframe
-              span= exp.start + ' - ' + exp.end
-            each desc in exp.desc
-              p= desc
-      aside
-        section#skills
-          h2 Skills
-          ul
-            each skill in skills
-              li= skill
-
-        section#tech
-          h2 Tech
-          ul
-            each tech in techs
-              li.col
-                span.name= tech.name
-                span.level
-                  - var lvl = 0;
-                  while lvl < tech.level
-                    span ▐
-                    - lvl++;
-        section#lang
-          h2 Langs
-          ul
-            each lang in langs
-              li.col
-                span.name= lang.name
-                span.level= lang.level
-    section#education
-      h2
-        span Education
-      each educ in education
+      section#letter
         article
-          h3
-            span= educ.title
-            = ' - ' + educ.org
-          p.timeframe
-            span= educ.year
-          each desc in educ.desc
-            p= desc
+          p#locationdate #{info.city}, #{info.date}
+
+          p#recipienthuman #{recipient.name} #[br] #{recipient.position}
+
+          p#recipentcompany #{recipient.company} #[br] #{recipient.address} #[br] #{recipient.city}, #{recipient.state} #{recipient.zip}
+
+          p#intro= content.intro
+
+          each item in content.body
+            p= item
+          
+          p#closing= content.closing
+          p#signature Yorick Demichelis
+          
+      aside
+        section#info
+          ul
+            li
+              span Phone
+              a(href="tel:+13235295721") 323-529-5721
+            li
+              span Email
+              a(href="mailto:yorick@ctrlaltdev.xyz") yorick@ctrlaltdev.xyz
+            li
+              span Github
+              a(href="https://github.com/ctrlaltdev") github.com/ctrlaltdev
+            li
+              span LinkedIn
+              a(href="https://linkedin.com/in/yorickdemichelis") linkedin.com/in/yorickdemichelis
+            li
+              span Website
+              a(href="https://ctrlaltdev.xyz") ctrlaltdev.xyz
