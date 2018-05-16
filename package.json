@@ -5,15 +5,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart": "./node_modules/.bin/node-sass ./src/cover.sass ./src/cover.css && ./node_modules/pug-cli/index.js -o ./src/ -P ./src/pug/cover.pug",
+    "start": "electron .",
     "sass": "./node_modules/.bin/node-sass ./src/cover.sass ./src/cover.css",
-    "pug": "./node_modules/pug-cli/index.js -o ./src/ -P ./src/pug/cover.pug",
-    "pdf": "./node_modules/.bin/html5-to-pdf --template-path ./src/ --page-size 'Letter' --print-background -d 1000 -i ./src/cover.css -o ./dest/cover.pdf ./src/cover.html",
-    "compile": "./node_modules/.bin/node-sass ./src/cover.sass ./src/cover.css && ./node_modules/pug-cli/index.js -o ./src/ -P ./src/pug/cover.pug && ./node_modules/.bin/html5-to-pdf --template-path ./src/ --page-size 'Letter' --print-background -d 1000 -i ./src/cover.css -o ./dest/cover.pdf ./src/cover.html"
+    "pug": "./node_modules/pug-cli/index.js -o ./src/ -P ./src/pug/cover.pug"
   },
   "author": "Yorick <yorick@ctrlaltdev.xyz>",
   "license": "MPL-2.0",
   "devDependencies": {
-    "html5-to-pdf": "^2.2.9",
+    "electron": "^2.0.1",
     "node-sass": "^4.9.0",
     "pug-cli": "^1.0.0-alpha6"
   },
