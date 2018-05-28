@@ -9,7 +9,7 @@ const {app, BrowserWindow} = require('electron')
   
   function createWindow () {
     // Create the browser window.
-    win = new BrowserWindow({width: 800, height: 600})
+    win = new BrowserWindow({width: 600, height: 800})
   
     // and load the index.html of the app.
     win.loadURL(url.format({
@@ -18,20 +18,7 @@ const {app, BrowserWindow} = require('electron')
       slashes: true
     }))
 
-    win.webContents.on('did-finish-load', () => {
-      let opts = {
-        pageSize: "Letter",
-        printBackground: true
-      }
-      win.webContents.printToPDF(opts, (error, data) => {
-        if (error) throw error
-        fs.writeFile(__dirname + '/dest/cover.pdf', data, (error) => {
-          if (error) throw error
-          console.log('Write PDF successfully.')
-          win.close();
-        })
-      })
-    })
+    setTimeout(printCover, 3000)
   
     // Emitted when the window is closed.
     win.on('closed', () => {
@@ -66,3 +53,17 @@ const {app, BrowserWindow} = require('electron')
   
   // In this file you can include the rest of your app's specific main process
   // code. You can also put them in separate files and require them here.
+  function printCover() {
+    let opts = {
+      pageSize: "Letter",
+      printBackground: true
+    }
+    win.webContents.printToPDF(opts, (error, data) => {
+      if (error) throw error
+      fs.writeFile(__dirname + '/dest/cover.pdf', data, (error) => {
+        if (error) throw error
+        console.log('Write PDF successfully.')
+        win.close();
+      })
+    })
+  }
