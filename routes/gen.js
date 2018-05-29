@@ -17,7 +17,6 @@ function formatDate(date) {
 }
 
 router.post('/', function(req, res, next) {
-  console.log(req.body);
 
   let info = {
     city: req.body["info.city"],
