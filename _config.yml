@@ -1,0 +1,8 @@
+remote_theme: ctrlaltdev/ctrlaltdev-theme
+theme_settings:
+  title: "Cover Letter"
+  description: "Cover Letter Generator"
+github: "ctrlaltdev/cover-letter"
+sass:
+  sass_dir: _sass
+style: :compressed
