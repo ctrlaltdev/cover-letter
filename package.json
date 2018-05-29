@@ -5,7 +5,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "sass": "./node_modules/.bin/node-sass --output ./public/style/ --source-map true --source-map-contents ./public/style/",
+    "test": "exit 0"
   },
   "author": "Yorick <yorick@ctrlaltdev.xyz>",
   "licenses": [
@@ -28,7 +30,9 @@
     "express": "^4.16.3",
     "http-errors": "^1.6.3",
     "morgan": "^1.9.0",
-    "node-sass-middleware": "^0.11.0",
     "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "node-sass": "^4.9.0"
   }
 }

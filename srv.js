@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var sassMiddleware = require('node-sass-middleware');
 
 var indexRouter = require('./routes/index');
 var genRouter = require('./routes/gen');
@@ -19,12 +18,6 @@ srv.use(logger('dev'));
 srv.use(express.json());
 srv.use(express.urlencoded({ extended: false }));
 srv.use(cookieParser());
-srv.use(sassMiddleware({
-  src: path.join(__dirname, 'public'),
-  dest: path.join(__dirname, 'public'),
-  indentedSyntax: true, // true = .sass and false = .scss
-  sourceMap: true
-}));
 srv.use(express.static(path.join(__dirname, 'public')));
 
 srv.use('/', indexRouter);
