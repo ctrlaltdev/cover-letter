@@ -1,0 +1,59 @@
+extends layout
+
+block content
+
+  - var states = {AL: "Alabama", AK: "Alaska", AZ: "Arizona", AR: "Arkansas", CA: "California", CO: "Colorado", CT: "Connecticut", DE: "Delaware", FL: "Florida", GA: "Georgia", HI: "Hawaii", ID: "Idaho", IL: "Illinois", IN: "Indiana", IA: "Iowa", KS: "Kansas", KY: "Kentucky", LA: "Louisiana", ME: "Maine", MD: "Maryland", MA: "Massachussetts", MI: "Michigan", MN: "Minnesota", MS: "Mississippi", MO: "Missouri", MT: "Montana", NE: "Nebraska", NV: "Nevada", NH: "New Hampshire", NJ: "New Jersey", NM: "New Mexico", NY: "New York", NC: "North Carolina", ND: "North Dakota", OH: "Ohio", OK: "Oklahoma", OR: "Oregon", PA: "Pennsylvania", RI: "Rhode Island", SC: "South Carolina", SD: "South Dakota", TN: "Tennessee", TX: "Texas", UT: "Utah", VT: "Vermont", VA: "Virginia", WA: "Washington", WV: "West Virginia", WI: "Wisconsin", WY: "Wyoming"};
+
+  h1 Cover Letter Generator
+
+  form(action="/gen", method="POST", name="coverletter")
+    input(type="text", placeholder="City", value="Los Angeles", name="info.city")
+    input(type="date", placeholder="Date", value=date, name="info.date")
+    input(type="text", placeholder="Position", name="info.position")
+
+    input(type="phone", placeholder="XXX XXX XXXX", value="323 529 5127", name="personalinfo.phone.txt")
+    input(type="phone", placeholder="+XXXXXXXXXXXX", value="+13235295127", name="personalinfo.phone.value")
+    input(type="email", placeholder="user@host.tld", value="yorick@ctrlaltdev.xyz", name="personalinfo.email")
+    input(type="github", placeholder="githubhandle", value="ctrlaltdev", name="personalinfo.github")
+    input(type="linkedin", placeholder="linkedinshorturl", value="yorickdemichelis", name="personalinfo.linkedin")
+    input(type="website", placeholder="hostname.tld", value="ctrlaltdev.xyz", name="personalinfo.website")
+
+    input(type="text", placeholder="Company", name="recipient.company")
+    input(type="text", placeholder="Company Contact", name="recipient.name")
+    input(type="text", placeholder="Address", name="recipient.address")
+    input(type="text", placeholder="City", name="recipient.city")
+    input(list="states", placeholder="State", name="recipient.state")
+    datalist#states
+      for state, code in states
+        option(value=code)= state
+    input(type="text", placeholder="Zip", name="recipient.zip")
+
+    select(name="content.intro")
+      option(value="0") Dear COMPANY
+      option(value="1") Dear CONTACT
+      option(value="2") Dear COMPANY Team
+      option(value="3") Dear Hiring Manager
+      option(value="4") To Whom It May Concern
+      option(value="5") Dear Human Resources Manager
+
+    textarea(name="content.body")
+    textarea(name="content.body")
+    textarea(name="content.body")
+    textarea(name="content.body")
+
+    select(name="content.closing")
+      option(value="Thanks you,") Thank you
+      option(value="Best regards,") Best regards
+      option(value="Kind regards,") Kind regards
+      option(value="Sincerely,") Sincerely
+      option(value="With best regards,") With best regards
+      option(value="Best,") Best
+      option(value="Thank you for your consideration,") Thank you for your consideration
+      option(value="Respectfully,") Respectfully
+      option(value="Regards,") Regards
+      option(value="Sincerely yours,") Sincerely yours
+      option(value="Yours truly,") Yours truly
+      option(value="Most sincerely,") Most sincerely
+      option(value="Respectfully yours,") Respectfully yours
+
+    input(type="submit", value="Generate")

@@ -1,0 +1,46 @@
+html
+  head
+    meta(charset="utf-8")
+    title Yorick Demichelis
+    link(rel="stylesheet", media="all", href="/style/cover.css")
+  body
+    header
+      h1 Yorick Demichelis
+      h2 #{info.position}
+    #grid-container
+      section#letter
+        article
+          p#locationdate #{info.city}, #{info.date}
+
+          if recipient.name
+            p#recipienthuman #{recipient.name} #[br] #{recipient.position}
+
+          p#recipentcompany #{recipient.company} #[br] #{recipient.address} #[br] #{recipient.city}, #{recipient.state} #{recipient.zip}
+
+          p#intro= content.intro
+
+          each item in content.body
+            p !{item}
+          
+          p#closing= content.closing
+          p#signature Yorick Demichelis
+          
+      aside
+        section#info
+          h2 Personal info
+          ul
+            li
+              span Phone
+              a(href="tel:" + personalinfo.phone.value) #{personalinfo.phone.txt}
+            li
+              span Email
+              a(href="mailto:" + personalinfo.email) #{personalinfo.email}
+            li
+              span Github
+              a(href="https://github.com/" + personalinfo.github) github/#{personalinfo.github}
+            li
+              span LinkedIn
+              a(href="https://linkedin.com/in/" + personalinfo.linkedin) linkedin/#{personalinfo.linkedin}
+            li
+              span Website
+              a(href="https://" + personalinfo.website) #{personalinfo.website}
