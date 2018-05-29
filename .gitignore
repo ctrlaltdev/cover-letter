@@ -1,6 +1,5 @@
-cover.html
-cover.pdf
-cover.css
+*.css
+*.css.map
 
 # Logs
 logs
