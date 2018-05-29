@@ -1,6 +1,6 @@
-public/pdf/*
+public/pdf/cover.pdf
 
-# Logs
+i Logs
 logs
 *.log
 npm-debug.log*
