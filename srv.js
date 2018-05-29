@@ -7,6 +7,7 @@ var sassMiddleware = require('node-sass-middleware');
 
 var indexRouter = require('./routes/index');
 var genRouter = require('./routes/gen');
+var pdfRouter = require('./routes/pdf');
 
 var srv = express();
 
@@ -27,7 +28,8 @@ srv.use(sassMiddleware({
 srv.use(express.static(path.join(__dirname, 'public')));
 
 srv.use('/', indexRouter);
-srv.use('/gen', genRouter);
+srv.use('/gen/', genRouter);
+srv.use('/pdf/', pdfRouter);
 
 // catch 404 and forward to error handler
 srv.use(function(req, res, next) {

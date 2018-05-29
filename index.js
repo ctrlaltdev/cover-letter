@@ -68,7 +68,7 @@ const fs = require('fs')
 let win
   
 function createWindow () {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({width: 800, height: 600, icon: __dirname + '/public/img/icon.png'})
   win.setMenu(null)
 
   win.loadURL(url.format({
@@ -77,7 +77,13 @@ function createWindow () {
     slashes: true
   }))
 
-  //setTimeout(printCover, 3000)
+  win.webContents.on('dom-ready', (event) => {
+    let hist = event.sender.webContents.history;
+    let lastpage = hist[hist.length-1];
+    if(lastpage.slice(-4) == "gen/"){
+      setTimeout(printCover, 1000);
+    }
+  })
 
   win.on('closed', () => {
     win = null
@@ -105,10 +111,15 @@ function printCover() {
   }
   win.webContents.printToPDF(opts, (error, data) => {
     if (error) throw error
-    fs.writeFile(__dirname + '/dest/cover.pdf', data, (error) => {
+    fs.writeFile(__dirname + '/public/pdf/cover.pdf', data, (error) => {
       if (error) throw error
-      console.log('Write PDF successfully.')
-      win.close();
+      console.log('Cover Letter Saved.')
+      
+      win.loadURL(url.format({
+        pathname: "localhost:" + port + "/pdf",
+        protocol: 'http:',
+        slashes: true
+      }))
     })
   })
 }
