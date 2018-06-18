@@ -48,6 +48,7 @@ router.post('/', function(req, res, next) {
   }
 
   let content = {
+    intro: "",
     body: req.body["content.body"],
     closing: req.body["content.closing"]
   };

@@ -40,7 +40,9 @@ block content
         option(value="4") To Whom It May Concern
         option(value="5") Dear Human Resources Manager
 
-      textarea(name="content.body")
+      fieldset.contentbody
+        textarea(name="content.body")
+      button(type="button")#btncontentbody.more +
 
       select(name="content.closing")
         option(value="Thanks you,") Thank you
