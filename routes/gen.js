@@ -9,7 +9,7 @@ function formatDate(date) {
     "November", "December"
   ];
 
-  var day = date.getDate();
+  var day = date.getUTCDate();
   var monthIndex = date.getMonth();
   var year = date.getFullYear();
 
